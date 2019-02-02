@@ -20,5 +20,14 @@
     "mongoose": "^5.4.9",
     "morgan": "^1.9.1",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-g-jackson/HW-MongoScraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/e-g-jackson/HW-MongoScraper/issues"
+  },
+  "homepage": "https://github.com/e-g-jackson/HW-MongoScraper#readme"
 }

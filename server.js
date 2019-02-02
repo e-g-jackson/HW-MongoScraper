@@ -17,7 +17,7 @@ mongoose.connect(MONGODB_URI);
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/public", express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.connect("mongodb://localhost/news_stories", { useNewUrlParser: true });
 
