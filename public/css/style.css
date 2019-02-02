@@ -1,3 +1,28 @@
+body{
+    background-color: #f6f7eb;
+}
+
+/* h3{
+    
+} */
+
+.articleImg{
+    border:5px solid #b4b4b4;
+}
+.articleImg:hover{
+    border: 5px solid #999999;
+}
+
+.articleRow{
+    background: #cccccc;
+}
+
+.articleTitle{
+    background-color: #b4b4b4;
+    color: white;
+    padding: 15px;
+}
+
 /* #contentDiv{
     margin-left: 10%;
 } */
@@ -5,6 +30,7 @@
 #mainDiv{
     min-height: 500px;
     padding: 20px;
+    background-color: #ffffff;
 }
 
 #scraperBtn{
@@ -14,6 +40,7 @@
 
 #title{
     display: inherit;
+    text-align: center;
 }
 
 #titleText{
