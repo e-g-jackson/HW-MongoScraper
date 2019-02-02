@@ -1,0 +1,9 @@
+#mainDiv{
+    min-height: 500px;
+    padding: 20px;
+}
+
+#scraperBtn{
+    height: 100%;
+    width:100%;
+}

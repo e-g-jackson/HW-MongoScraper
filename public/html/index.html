@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta lang = "en-us">
+        <meta charset = "UTF-8">
+        <title>MongoScraper</title>
+
+        <!-- Define Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap links -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    
+        <link rel = "stylesheet" type = "text/css" href = "../css/style.css">
+    </head>
+    <body>
+        <header class = "jumbotron container-fluid">
+            <div class = "row">
+                <div class = "col-4"></div>
+                <div class = "col-4" style = "text-align: center;">
+                    <h1>MONGOSCRAPER</h1>
+                </div>
+                <div class = "col-4"></div>
+            </div>
+        </header>
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-1"></div>
+                <div id = "mainDiv" class = "col-10 border border-danger">
+                    <div class = "row">
+                        <div class = "col-6">
+                            <h1>Scrape & Save!</h1>
+                        </div>
+                        <div class = "col-4"></div>
+                        <div class = "col-2">
+                            <button id = "scraperBtn" class = "btn btn-lg btn-primary">
+                                Scrape!
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div id = "contentDiv">
+                    </div>                    
+                </div>
+                <div class = "col-1"></div>
+            </div>
+        </div>
+    </body>
+    <script type = "text/javascript" src = "../js/app.js"></script>
+</html>
