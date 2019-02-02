@@ -1,3 +1,7 @@
+/* #contentDiv{
+    margin-left: 10%;
+} */
+
 #mainDiv{
     min-height: 500px;
     padding: 20px;
@@ -6,4 +10,13 @@
 #scraperBtn{
     height: 100%;
     width:100%;
+}
+
+#title{
+    display: inherit;
+}
+
+#titleText{
+    margin-left: 10px;
+    margin-right: 10px;
 }

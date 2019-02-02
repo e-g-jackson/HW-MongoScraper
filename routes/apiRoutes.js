@@ -13,14 +13,13 @@ module.exports = function(app){
             var $ = cheerio.load(response.data);
             $("article").each(function(i, element){
                 var title = $(element).find("h2").text();
-                // console.log(title);
+                var img = $(element).find("img").attr("src");
                 var link = $(element).find("a").attr("href");
                 var url = urlBase + link;
-                // console.log(url);
                 var summary = $(element).find("p").text();
-                // console.log(summary);
                 results.push({
                     "title": title,
+                    "img": img,
                     "link": url,
                     "summary": summary
                 });
