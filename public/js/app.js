@@ -37,7 +37,7 @@ $(document).on("click", ".noteBtn", function(event){
 
 })
 
-// View Notes
+// Show Notes
 $(document).on("click", ".viewBtn", function(event){
     event.preventDefault();
 
@@ -45,7 +45,26 @@ $(document).on("click", ".viewBtn", function(event){
     var idNum = $(articleDiv).attr("idNumber")
     var noteDiv = $(articleDiv).find(".noteDiv");
     
+    $(noteDiv).removeClass("hidden")
+    $(this).removeClass("viewBtn");
+    $(this).addClass("hideBtn")
     noteFinder(noteDiv, idNum);
+})
+
+// Hide Notes
+$(document).on("click", ".hideBtn", function(event){
+    event.preventDefault();
+    
+    var articleDiv = $(this).parent().parent();
+    var noteDiv = $(articleDiv).find(".noteDiv");
+
+    $(this).removeClass("hideBtn");
+    $(this).addClass("viewBtn");
+    $(noteDiv).addClass("animated fadeOut");
+    setTimeout(function(){
+        $(noteDiv).removeClass("animated fadeOut")
+        $(noteDiv).addClass("hidden")
+    }, 1000)
 })
 
 //Submit Note
@@ -53,6 +72,7 @@ $(document).on("click", ".submitBtn", function(){
     var parElement = $(this).parent();
     var text = parElement.children("input").val().trim();
     var idNumber = parElement.parent().parent().attr("idNumber");
+    var nDiv = parElement.parent().parent().find(".noteDiv")
     var data = {
         articleId: idNumber,
         body: text
@@ -64,6 +84,8 @@ $(document).on("click", ".submitBtn", function(){
         console.log("post request made. text = ", text);
         console.log("response:");
         console.log(data)
+    }).then(function(){
+        noteFinder(nDiv, idNumber)
     })
 })
 
@@ -124,7 +146,7 @@ function lister(data){
         $(content).append(article);
         $(article).after("<br>")
         $(article).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
-            $(article).removeClass('animated jackInTheBox');
+            $(article).removeClass('animated fadeIn');
         });
 
         // $.get("/data/getNotes/" + data[i]._id, function(req, res){
@@ -152,12 +174,18 @@ function noteFinder(nDiv, idNum){
         console.log(nDiv);
         $(nDiv).empty()
         for( var i = 0; i < data.length; i++){
-            var newNote = $("<div class = 'note'></div>");
+            var newNote = $("<div class = 'note animated fadeIn'></div>");
             var title = $("<p><em>Note Created on : " + data[i].createdAt + "</em></p>");
             var body = $("<p>" + data[i].body + "</p>")
+            
             $(newNote).append(title);
             $(newNote).append(body);
             $(nDiv).append(newNote);
+
+            $(".note").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+                $(".note").removeClass('animated fadeIn');
+            });
+
         }
     })
 }
