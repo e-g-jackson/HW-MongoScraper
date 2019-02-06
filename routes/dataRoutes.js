@@ -54,26 +54,30 @@ module.exports = function(app){
             }
         })
     })
+
     //generalized note loading function
-    app.get("/data/getNotes", function(req, res){
-        db.scrapedData.find({}, function(err, result){
-            if(err){
-                console.log(err)
-            } else {
-                res.json(result)
-            }
-        })
-    })
+    
+    // app.get("/data/getNotes", function(req, res){
+    //     db.scrapedData.find({}, function(err, result){
+    //         if(err){
+    //             console.log(err)
+    //         } else {
+    //             res.json(result)
+    //         }
+    //     })
+    // })
+    
     //GET specific article's notes
     app.get("/data/getNotes/:id", function(req, res){
         var noteId = req.params.id;
         console.log('GET: req.params.id:');
         console.log(noteId);
-        db.scrapedData.find({}, function(err, result){
+        db.Note.find({articleId: noteId}, function(err, result){
             if(err){
                 console.log(err)
             } else {
-                res.json(result)
+                console.log(result);
+                res.json(result);
             }
         })
     })
@@ -86,13 +90,12 @@ module.exports = function(app){
         db.Note.create(req.body)
              .then(function(note){
                 console.log(note);
+                res.send(note);
              })
              .catch(function(err){
                  if (err){
                     throw err;
                  }
              });
-            console.log(req.body);
-            res.send(req.body);
     })
 }

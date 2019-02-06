@@ -33,17 +33,10 @@ body{
     margin-right: -15px;
 }
 
-/* .btmLinks{
-    bottom: 0px;
-} */
-
 .hidden{
     visibility: hidden;
     height: 0px;
 }
-/* .hidden-not{
-    visibility: visible;
-} */
 
 .imgDivs{
     border-left: 15px solid #b4b4b4b4;
@@ -63,13 +56,20 @@ body{
     height:100px;
 }
 
+.note{
+    margin: 20px;
+    width: 100%;
+    background-color: #f6f7eb;
+}
+.noteDiv{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .textHolder{
     height: 100%;
 }
-
-/* #contentDiv{
-    margin-left: 10%;
-} */
 
 #mainDiv{
     min-height: 500px;
