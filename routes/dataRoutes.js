@@ -54,18 +54,6 @@ module.exports = function(app){
             }
         })
     })
-
-    //generalized note loading function
-    
-    // app.get("/data/getNotes", function(req, res){
-    //     db.scrapedData.find({}, function(err, result){
-    //         if(err){
-    //             console.log(err)
-    //         } else {
-    //             res.json(result)
-    //         }
-    //     })
-    // })
     
     //GET specific article's notes
     app.get("/data/getNotes/:id", function(req, res){

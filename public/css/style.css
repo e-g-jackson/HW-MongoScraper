@@ -58,6 +58,8 @@ body{
 
 .note{
     margin: 20px;
+    padding: 10px;
+    padding-left: 30px;
     width: 100%;
     background-color: #f6f7eb;
 }
