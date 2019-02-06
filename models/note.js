@@ -3,8 +3,11 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var NoteSchema = new Schema ({
-    title: String,
+    // date: Date,
+    articleId: String,
     body: String
+},{ 
+    timestamps: true
 });
 
 var Note = mongoose.model("Note", NoteSchema);

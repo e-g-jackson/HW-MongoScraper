@@ -4,6 +4,7 @@ var db = require(path.join(__dirname, "../models/index.js"));
 var axios = require("axios");
 
 module.exports = function(app){
+    //Scrape website
     app.get("/scrape", function(req, res){
         console.log("starting scrape!");
         var results = [];
@@ -17,11 +18,6 @@ module.exports = function(app){
                 var link = $(element).find("a").attr("href");
                 var url = urlBase + link;
                 var summary = $(element).find("p").text();
-                
-                // var dbInfo = db.scrapedData.aggregate([{$group:{_id: "$title", result: {$sum: 1}}}]);
-                // console.log("////////////////////////////////////////////////////////////////////")
-                // console.log(dbInfo);
-                // console.log("////////////////////////////////////////////////////////////////////")
                 
                 results.push({
                     "title": title,
@@ -39,8 +35,6 @@ module.exports = function(app){
              })
              .catch(function(err){
                  if (err){
-                    console.log("ohhh nooo!")
-                    // console.log(err);
                     throw err;
                  }
              });
@@ -49,6 +43,7 @@ module.exports = function(app){
             
         });
     });
+    //GET Articles
     app.get("/data/getAll", function(req, res){
         db.scrapedData.find({}, function(err, result){
             if(err){
@@ -59,6 +54,7 @@ module.exports = function(app){
             }
         })
     })
+    //generalized note loading function
     app.get("/data/getNotes", function(req, res){
         db.scrapedData.find({}, function(err, result){
             if(err){
@@ -68,8 +64,35 @@ module.exports = function(app){
             }
         })
     })
-    app.post("/data/postNote", function(req, res){
-        console.log(req);
-        // db.notes.create(req.body)
+    //GET specific article's notes
+    app.get("/data/getNotes/:id", function(req, res){
+        var noteId = req.params.id;
+        console.log('GET: req.params.id:');
+        console.log(noteId);
+        db.scrapedData.find({}, function(err, result){
+            if(err){
+                console.log(err)
+            } else {
+                res.json(result)
+            }
+        })
+    })
+    //POST note
+    app.post("/data/postNote/:id", function(req, res){
+        var noteId = req.params.id;
+        console.log('POST: req.params.id:');
+        console.log(noteId);
+        
+        db.Note.create(req.body)
+             .then(function(note){
+                console.log(note);
+             })
+             .catch(function(err){
+                 if (err){
+                    throw err;
+                 }
+             });
+            console.log(req.body);
+            res.send(req.body);
     })
 }

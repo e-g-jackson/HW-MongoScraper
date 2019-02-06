@@ -37,6 +37,14 @@ body{
     bottom: 0px;
 } */
 
+.hidden{
+    visibility: hidden;
+    height: 0px;
+}
+/* .hidden-not{
+    visibility: visible;
+} */
+
 .imgDivs{
     border-left: 15px solid #b4b4b4b4;
 }

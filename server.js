@@ -3,7 +3,7 @@ var app = express();
 var path = require("path")
 var logger = require("morgan");
 var mongoose = require("mongoose");
-var axios = require("axios");
+// var axios = require("axios");
 // var cheerio = require("cheerio");
 
 var PORT = process.env.PORT || 3000;
@@ -19,8 +19,6 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-
-// db.User.create()
 
 // Routes
 require("./routes/dataRoutes")(app);
