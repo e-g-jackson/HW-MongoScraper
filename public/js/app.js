@@ -78,10 +78,9 @@ $(document).on("click", ".submitBtn", function(){
         body: text
     }
     console.log("Submiting: ", text);
-    console.log(idNumber);
     
     $.post("/data/postNote/" + idNumber, data, function(data){
-        console.log("post request made. text = ", text);
+        // console.log("post request made. text = ", text);
         console.log("response:");
         console.log(data)
     }).then(function(){
@@ -118,7 +117,7 @@ function scrape(){
 
 //Renders Article List
 function lister(data){
-    for( var i = 0; i < data.length; i++){
+    for( var i = data.length -1; i >= 0; i--){
         var num = i + 1;
         var idNum = data[i]._id;
         var artDiv = 'article' + num;
@@ -148,14 +147,6 @@ function lister(data){
         $(article).one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
             $(article).removeClass('animated fadeIn');
         });
-
-        // $.get("/data/getNotes/" + data[i]._id, function(req, res){
-        //     // console.log("Result:", res);
-        //     // $(noteDiv).append(res);
-        //     placeNote(artDiv, idNum);
-        // })
-
-        // noteFinder(artDiv, idNum)
     }
 }
 
@@ -167,11 +158,8 @@ function noteFinder(nDiv, idNum){
         // $(noteDiv).append(res);
 
         // placeNote(artDiv, idNum);
+
     }).then(function(data){
-        
-        console.log(data);
-        // console.log(artDiv);
-        console.log(nDiv);
         $(nDiv).empty()
         for( var i = 0; i < data.length; i++){
             var newNote = $("<div class = 'note animated fadeIn'></div>");
@@ -189,8 +177,3 @@ function noteFinder(nDiv, idNum){
         }
     })
 }
-// function placeNote(articleDiv, idNum){
-//     var thisDiv = document.getElementById(articleDiv)
-//     console.log(thisDiv)
-//     console.log(idNum);\
-// }

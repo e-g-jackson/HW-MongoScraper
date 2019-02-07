@@ -1,8 +1,8 @@
 
-a:link{color: #333333}
-a:hover{color: #ffffff}
-a:active{color:darkolivegreen}
-a:visited{color: darkgreen}
+a:link{color: #f1e9db}
+a:hover{color: #70cff8}
+a:active{color:#70cff8}
+a:visited{color: #5db7de}
 body{
     background-color: #f6f7eb;
 }
@@ -18,15 +18,15 @@ body{
 }
 
 .articleImg:hover{
-    border: 5px solid #999999;
+    border: 5px solid #5db7de;
 }
 
 .articleRow{
-    background: #cccccc;
+    background: #f1e9db;
 }
 
 .articleTitle{
-    background-color: #b4b4b4;
+    background-color: #716a5c;
     color: white;
     padding: 15px;
     margin-left: -30px;
@@ -39,7 +39,7 @@ body{
 }
 
 .imgDivs{
-    border-left: 15px solid #b4b4b4b4;
+    border-left: 15px solid #716a5c;
 }
 
 .inputDiv{
@@ -54,6 +54,7 @@ body{
 
 .jumbotron{
     height:100px;
+    background-color: #07020d;
 }
 
 .note{
@@ -88,9 +89,11 @@ body{
 #title{
     display: inherit;
     text-align: center;
+    color: #5db7de;
 }
 
 #titleText{
     margin-left: 10px;
     margin-right: 10px;
+    color: #f1e9db;
 }
