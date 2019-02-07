@@ -124,13 +124,12 @@ function lister(data){
     for( var i = data.length -1; i >= 0; i--){
         var num = i + 1;
         var idNum = data[i]._id;
-        var artDiv = 'article' + num;
         
         var article = $("<div id = 'article" + num + "' class = 'row articleRow animated fadeIn' idNumber = '" + idNum + "'></div>")
-        var img = $("<div class = 'col-4 text-center imgDivs'><a href = '" + data[i].link + "' target = '_blank'><img src = " + data[i].img + " alt = '" + data[i].title + "' class = 'img-fluid mx-auto my-auto articleImg'></a></div>")
-        var words = $("<div class = 'col-8 textHolder'></div>");
+        var img = $("<div class = 'col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center imgDivs'><a href = '" + data[i].link + "' target = '_blank'><img src = " + data[i].img + " alt = '" + data[i].title + "' class = 'img-fluid mx-auto my-auto articleImg'></a></div>")
+        var words = $("<div class = 'col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 textHolder'></div>");
         var title = $("<h3 id = 'title" + num + "' class = 'articleTitle'><a id = 'link" + num + "' href = '" + data[i].link + "' target = '_blank'>" + data[i].title + "</a></h3>");
-        var link = $("<a id = 'link" + num + "' href = '" + data[i].link + "' target = '_blank'>" + data[i].link + "</a>");
+        var link = $("<a id = 'link" + num + "' href = '" + data[i].link + "' target = '_blank' class = 'linkDiv'>" + data[i].link + "</a>");
         var summary = $("<p id = 'p" + num + "'>" + data[i].summary + "</p>");
         var btmLinks = $("<a class = 'noteBtn align-text-bottom' href = '#'>Leave a comment</a> | <a class = 'viewBtn align-text-bottom' href = '#'>View Notes</a>")
         var noteDiv = $("<div id = noteDiv" + num + " class = 'noteDiv'></div>")
@@ -167,11 +166,11 @@ function noteFinder(nDiv, idNum){
         $(nDiv).empty()
         for( var i = 0; i < data.length; i++){
             var newNote = $("<div class = 'note animated fadeIn'></div>");
-            var title = $("<p><em>Note Created on : " + data[i].createdAt + "</em></p>");
-            var body = $("<p>" + data[i].body + "</p>")
+            var created = $("<p class = 'font-weight-light'><em>Note Created on : " + data[i].createdAt + "</em></p>");
+            var body = $("<p><strong>" + data[i].body + "</strong></p>")
             
-            $(newNote).append(title);
             $(newNote).append(body);
+            $(newNote).append(created);
             $(nDiv).append(newNote);
 
             $(".note").one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
