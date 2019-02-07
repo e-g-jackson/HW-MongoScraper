@@ -78,9 +78,9 @@ $(document).on("click", ".submitBtn", function(){
         body: text
     }
     console.log("Submiting: ", text);
-    
+    console.log(parElement.children(".inputForm"));
+    parElement.children("input").val("");
     $.post("/data/postNote/" + idNumber, data, function(data){
-        // console.log("post request made. text = ", text);
         console.log("response:");
         console.log(data)
     }).then(function(){
@@ -109,8 +109,12 @@ function scrape(){
         $.get("/data/getAll", function(data){
             console.log("Grabbing data from MongoDB...")
             console.log(data);
-            $(content).empty();
-            lister(data)
+            $(".articleRow").addClass("animated fadeOut")
+            setTimeout(function(){
+                $(".articleRow").removeClass("animated fadeOut")
+                $(content).empty();
+                lister(data)
+            },1000)
         });
     });
 }

@@ -3,13 +3,10 @@ a:link{color: #5db7de;}
 a:hover{color: #70cff8;}
 a:active{color:#70cff8;}
 a:visited{color: #5db7de;}
+
 body{
     background-color: #f6f7eb;
 }
-
-/* h3{
-    
-} */
 
 .articleImg{
     border:5px solid #b4b4b4;
@@ -65,9 +62,10 @@ body{
     background-color: #f6f7eb;
 }
 .noteDiv{
-    width: 85%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    border-left: 15px solid #716a5c;
 }
 
 .textHolder{
