@@ -127,10 +127,10 @@ function lister(data){
         var artDiv = 'article' + num;
         
         var article = $("<div id = 'article" + num + "' class = 'row articleRow animated fadeIn' idNumber = '" + idNum + "'></div>")
-        var img = $("<div class = 'col-4 text-center imgDivs'><a href = '" + data[i].link + "'><img src = " + data[i].img + " alt = '" + data[i].title + "' class = 'img-fluid mx-auto my-auto articleImg'></a></div>")
+        var img = $("<div class = 'col-4 text-center imgDivs'><a href = '" + data[i].link + "' target = '_blank'><img src = " + data[i].img + " alt = '" + data[i].title + "' class = 'img-fluid mx-auto my-auto articleImg'></a></div>")
         var words = $("<div class = 'col-8 textHolder'></div>");
         var title = $("<h3 id = 'title" + num + "' class = 'articleTitle'><a id = 'link" + num + "' href = '" + data[i].link + "' target = '_blank'>" + data[i].title + "</a></h3>");
-        var link = $("<a id = 'link" + num + "' href = '" + data[i].link + "'>" + data[i].link + "</a>");
+        var link = $("<a id = 'link" + num + "' href = '" + data[i].link + "' target = '_blank'>" + data[i].link + "</a>");
         var summary = $("<p id = 'p" + num + "'>" + data[i].summary + "</p>");
         var btmLinks = $("<a class = 'noteBtn align-text-bottom' href = '#'>Leave a comment</a> | <a class = 'viewBtn align-text-bottom' href = '#'>View Notes</a>")
         var noteDiv = $("<div id = noteDiv" + num + " class = 'noteDiv'></div>")
